@@ -7,11 +7,11 @@ body {
   margin: 0px 0px;
 }
 
-$breakpoint-phone: 576px; // Phone (small)
-$breakpoint-tablet: 768px; // Tablet (iPad portrait)
-$breakpoint-tablet-landscape: 1024px; // Tablet (iPad landscape)
-$breakpoint-desktop: 1200px; // Desktop
-// Mixin for responsive design
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-landscape: 1024px;
+$breakpoint-desktop: 1200px;
+
 @mixin respond-to($device) {
   @if $device == phone {
     @media (max-width: $breakpoint-phone) {
