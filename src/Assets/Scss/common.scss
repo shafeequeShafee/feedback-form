@@ -1,21 +1,53 @@
-.App {
+body {
+  height: 100vh;
+  box-sizing: border-box;
   background: #d5e4f1;
-  .feed-back-form-parent {
-    height: 100vh;
+}
+* {
+  margin: 0px 0px;
+}
 
+$breakpoint-phone: 576px; // Phone (small)
+$breakpoint-tablet: 768px; // Tablet (iPad portrait)
+$breakpoint-tablet-landscape: 1024px; // Tablet (iPad landscape)
+$breakpoint-desktop: 1200px; // Desktop
+// Mixin for responsive design
+@mixin respond-to($device) {
+  @if $device == phone {
+    @media (max-width: $breakpoint-phone) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-tablet-landscape) {
+      @content;
+    }
+  } @else if $device == tablet-landscape {
+    @media (min-width: $breakpoint-tablet-landscape) {
+      @content;
+    }
+  } @else if $device == desktop {
+    @media (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  }
+}
+
+.App {
+  .feed-back-form-parent {
     display: flex;
     justify-content: center;
     align-items: center;
     .feed-back-form-container {
+      margin-top: 20px;
       color: #2071b2;
-
-      margin: 50px 0px 0px 50px;
       width: 100%;
       height: auto;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
-
+      @include respond-to(phone) {
+        flex-direction: column;
+      }
       .form-container {
         width: 410px;
         border-radius: 10px;
@@ -173,7 +205,7 @@
                 width: 60px;
                 height: 60px;
               }
-              span{
+              span {
                 color: #2f671b;
               }
             }
